@@ -1,7 +1,7 @@
-#project
+#Algorithm Project
 
 import os, sys
-
+import copy
 
 
 def median_quick(q, n):
@@ -15,6 +15,7 @@ def median_quick(q, n):
         for j in range(len(sublist)):
             s = sorted(sublist[j])
             median.append(s[(len(s) // 2)])
+        print("median array is: ")
         print(median)
         if len(median) <= 5:
             sorted(median)
@@ -30,11 +31,12 @@ def median_quick(q, n):
 def quicksort(A, p, r):
 
     if p < r:
+        print("p,r %d %d: " %(p,r))
         q = median_quick(A,len(A))
         print("pivot: %d" %(q))
         par = partition(A, p, r, q)
         print("i+1 index par: %d" %(par))
-        print("r , p: %d %d" %(r,p))
+        print("r , p: %d %d" %(r, p))
         quicksort(A, p, par - 1)
         quicksort(A, par + 1, r)
 
@@ -45,17 +47,19 @@ def partition(A, l, r, pivot):
         if A[i] == pivot:
             break
     A[i], A[r] = A[r], A[i]
-    # A[r] = A[i]
+    print("Inisde partition A: ")
     print(A)
     x = A[r]
-    print("x: %d" %(x))
+    print("partition x: ")
+    print(x)
     i = l - 1
-    for j in range(l, r - 1):
+    for j in range(l, r ):
         if A[j] <= x:
             i += 1
-            print("i : %d" %i)
             A[i], A[j] = A[j], A[i]
     A[i + 1], A[r] = A[r], A[i + 1]
+
+    print("end of partition A:")
     print(A)
     return i + 1
 
@@ -66,7 +70,10 @@ if __name__ == '__main__':
         v = input("enter element :")
         quick.append(int(v))
     print(quick)
+    quick_copy = copy.deepcopy(quick)
     quicksort(quick, 0, n-1)
-    for i in range(n):
-        print ("%d" %quick[i])
-    # print(median_quick([(i + 1) for i in range(11)], 11))
+
+    print("mycode : %s" % (quick))
+    # print(quick_copy)
+    quick_copy.sort()
+    print("inbuilt : %s" % (quick_copy))
