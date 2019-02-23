@@ -34,24 +34,8 @@ if __name__ == '__main__':
         count += 1
         quick.append(int(val))
     print("quick array: %s" % (quick))
-
-    #quick_copy = copy.deepcopy(quick)
     randomized_quicksort(quick, 0, count - 1)
     print("Sorted Array : %s" % (quick))
-    #quick_copy.sort()
-    #print("inbuilt : %s" % (quick_copy))
+
 
     file.close()
-    '''quick = []
-    n = int(input("enter number of elements: "))
-    for i in range(n):
-        v = input("enter element :")
-        quick.append(int(v))
-    print(quick)
-    quick_copy = copy.deepcopy(quick)
-    randomized_quicksort(quick, 0, n-1)
-
-    print("mycode : %s" % (quick))
-    #print(quick_copy)
-    quick_copy.sort()
-    print("inbuilt : %s" % (quick_copy))'''
