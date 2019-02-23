@@ -12,14 +12,10 @@ def median_quick(q, n):
     if len(q) >= 1:
         for i in range(0, n, 5):
             sublist.append(q[i:i + 5])
-        #print(sublist)
         for j in sublist:
             s = sorted(j)
             if len(s) > 0:
                 median.append(s[(len(s) // 2)])
-        #print("median array is: %s" % (median))
-        #print("array s is:  %s " % (s))
-
         if len(median) <= 5:
             sorted(median)
             pivot = median[len(median) // 2]
@@ -63,24 +59,9 @@ if __name__ == '__main__':
     for val in file.read().split():
         count += 1
         quick.append(int(val))
-
-    #print("Quick : %s" % (quick))
     quick_copy = copy.deepcopy(quick)
     quicksort(quick, 0, count - 1)
-    print("mycode : %s" % (quick))
+    print("Sorted Array : %s" % (quick))
     quick_copy.sort()
     print("inbuilt : %s" % (quick_copy))
     file.close()
-
-    ''' n = int(input("enter number of elements: "))
-        for i in range(n):
-            v = input("enter element :")
-            quick.append(int(v))
-        print(quick)
-        quick_copy = copy.deepcopy(quick)
-        quicksort(quick, 0, n-1)
-
-        print("mycode : %s" % (quick))
-        # print(quick_copy)
-        quick_copy.sort()
-        print("inbuilt : %s" % (quick_copy))'''
