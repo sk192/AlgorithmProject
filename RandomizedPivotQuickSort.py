@@ -28,14 +28,16 @@ if __name__ == '__main__':
 
     quick = []
     count = 0
-    theFile = os.path.join(os.path.expanduser('~'), 'PycharmProjects', 'AlgoProject', 'ArrayInput.txt')
+    theFile = os.path.join(os.path.expanduser('~'), 'PycharmProjects', 'AlgoProject', 'Input.txt')
     file = open(theFile, 'r')
     for val in file.read().split():
         count += 1
         quick.append(int(val))
-    print("quick array: %s" % (quick))
+    print("Input array: %s" % (quick))
+    #quick_copy = copy.deepcopy(quick)
     randomized_quicksort(quick, 0, count - 1)
     print("Sorted Array : %s" % (quick))
-
+    #quick_copy.sort()
+    #print("inbuilt : %s" % (quick_copy))
 
     file.close()

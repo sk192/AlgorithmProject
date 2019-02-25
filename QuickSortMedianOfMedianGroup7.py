@@ -12,7 +12,7 @@ def median_quick(q, n):
     if len(q) >= 1:
         for i in range(0, n, 7):
             sublist.append(q[i:i + 7])
-        print(sublist)
+        #print("sublist: %s" %(sublist))
         for j in sublist:
             s = sorted(j)
             if len(s) > 0:
@@ -55,14 +55,14 @@ if __name__ == '__main__':
     quick = []
     count = 0
 
-    theFile = os.path.join(os.path.expanduser('~'), 'PycharmProjects', 'AlgoProject', 'ArrayInput.txt')
+    theFile = os.path.join(os.path.expanduser('~'), 'PycharmProjects', 'AlgoProject', 'Input.txt')
     file = open(theFile, 'r')
     for val in file.read().split():
         count += 1
         quick.append(int(val))
-    quick_copy = copy.deepcopy(quick)
+    #quick_copy = copy.deepcopy(quick)
     quicksort(quick, 0, count - 1)
     print("Sorted Array : %s" % (quick))
-    quick_copy.sort()
-    print("inbuilt : %s" % (quick_copy))
+    #quick_copy.sort()
+    #print("inbuilt : %s" % (quick_copy))
     file.close()
