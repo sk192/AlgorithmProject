@@ -1,6 +1,6 @@
-# QuickSort using median-of-median group 5 as a pivot.
+# QuickSort using median-of-median (group 5) as a pivot.
 
-# Input: Input.txt file
+# Input: Array which contains elements from Input.txt file
 # Output: Sorted array written in output.txt file
 
 import os, sys
@@ -60,28 +60,28 @@ if __name__ == '__main__':
     file = open('Input.txt', 'r')
     for val in file.read().split():
         count += 1
-        quick.append(int(val))
+        quick.append(int(val))              # Copy all numbers from Input.txt file into array quick.
 
     quick_copy = copy.deepcopy(quick)
 
-    start = datetime.datetime.now()
+    start = datetime.datetime.now()          # Execution start time
     quicksort(quick, 0, count - 1)
-    finish = datetime.datetime.now()
+    finish = datetime.datetime.now()            # Execution finish time
 
     print("\n Overall Execution Time of QuickSort: ", (finish - start))
 
     fileOutput = open('Output.txt', 'w')
     for i in quick:
-        fileOutput.write(str(i) + str("\n"))
+        fileOutput.write(str(i) + str("\n"))             # Write sorted array in Output.txt file.
 
     start = datetime.datetime.now()
-    quick_copy.sort()
+    quick_copy.sort()                                   # Inbuilt sort function.
     finish = datetime.datetime.now()
 
     print("\n Overall Execution Time of Inbuilt Sort: ", (finish - start))
 
-    for index in range(len(quick)):                     # To check the all number's are in sorted array. Compared the sorted quick array with inbuilt sorted array.
-        if quick[index] != quick_copy[index]:
+    for index in range(len(quick)):                       # To check all numbers of an array quick is in sorted increasing order.
+        if quick[index] != quick_copy[index]:              # Compared the sorted quick array with inbuilt sorted array.
             print(index)
     file.close()
 
