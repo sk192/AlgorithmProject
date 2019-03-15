@@ -14,11 +14,11 @@ def randomized_quicksort(A, p, r):
         randomized_quicksort(A, q+1, r)
 
 def randomized_partition(A, p, r):
-    i = randint(p, r)
+    i = randint(p, r)                               # randomly choose element from array. return index of random element.
     A[i], A[r] = A[r], A[i]
     return partition(A, p, r)
 
-def partition(A, l, r):
+def partition(A, l, r):                             # Partition function to fix the pivot position
     x = A[r]
     i = l - 1
     for j in range(l, r):
@@ -38,11 +38,11 @@ if __name__ == '__main__':
         count += 1
         quick.append(int(val))                           # Copy all numbers from Input.txt file into array quick.
 
-    quick_copy = copy.deepcopy(quick)
+    quick_copy = copy.deepcopy(quick)                   # make the copy of input array
 
-    start = datetime.datetime.now()                         # Execution start time
+    start = datetime.datetime.now()                         # Execution start time of randomized_quicksort
     randomized_quicksort(quick, 0, count - 1)
-    finish = datetime.datetime.now()                     # Execution finish time
+    finish = datetime.datetime.now()                     # Execution finish time of randomized_quicksort
 
     print("\n Overall Execution Time of QuickSort: ", (finish - start))
 
@@ -50,9 +50,10 @@ if __name__ == '__main__':
     for i in quick:
         fileOutput.write(str(i) + str("\n"))                        # Write sorted array in Output.txt file.
 
-    start = datetime.datetime.now()
+    start = datetime.datetime.now()                         # Execution start time of inbuit sort()
     quick_copy.sort()                                             # Inbuilt sort function.
-    finish = datetime.datetime.now()
+    finish = datetime.datetime.now()                        # Execution finish time of inbuilt sort()
+
     print("\n Overall Execution Time of Inbuilt Sort: ", (finish - start))
 
     for index in range(len(quick)):                     # To check all numbers of an array quick is in sorted increasing order.
